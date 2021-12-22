@@ -43,7 +43,7 @@ test('cancel-all', async (t) => {
     })
   }
 
-  job.done('add-stack')
+  job.cancelAll()
   await job.done('add-stack')
 
   t.deepEqual(stack, [])
