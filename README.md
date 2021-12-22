@@ -87,6 +87,10 @@ function onChangeFile() {
 }
 ```
 
+## Docs
+
+https://izure1.github.io/delay-call/
+
 ## License
 
 This library follows the `MIT` license.
