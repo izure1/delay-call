@@ -22,15 +22,8 @@ class DelayCallQueueManager extends EventEmitter {
     }
   }
 
-  protected __setTimeout(callback: DelayCallback, delay: number): DelayCallQueueItem {
-    const done = Symbol('done')
-    const cancel = Symbol('cancel')
-    const callbackWrapper = () => {
-      callback()
-      this.emit(done)
-    }
-    const timeoutID = setTimeout(callbackWrapper, delay)
-    return { done, cancel, timeoutID }
+  protected __setTimeout(callback: DelayCallback, delay: number): DelayCallTimeoutID {
+    return setTimeout(callback, delay)
   }
 
   protected __clearTimeout(item: DelayCallQueueItem): void {
@@ -55,11 +48,15 @@ class DelayCallQueueManager extends EventEmitter {
     if (queue.has(id)) {
       this.__clearTimeout(this.__getQueue(queue, id))
     }
+    const done = Symbol('done')
+    const cancel = Symbol('cancel')
     const wrapper = () => {
       callback()
+      this.emit(done)
       queue.delete(id)
     }
-    queue.set(id, this.__setTimeout(wrapper, delay))
+    const timeoutID = this.__setTimeout(wrapper, delay)
+    queue.set(id, { done, cancel, timeoutID })
   }
 
   protected __cancel(queue: DelayCallQueue, id: DelayCallID): boolean {
