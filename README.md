@@ -33,7 +33,7 @@ function onChangeFile() {
 
 ### request(id: `string|number|symbol`, callback: `() => void`, delay: `number` = 25): `this`
 
-Request to execute the callback function. The function is not called immediately and waits as much as the 'delay' parameter. The default value of the `delay` is `25`.
+Request to execute the callback function. The function is not called immediately and waits as much as the `delay` parameter. The default value of the `delay` is `this.__delay`.
 
 ### cancel(id: `string|number|symbol`): `boolean`
 
