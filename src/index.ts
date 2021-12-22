@@ -1,2 +1,1 @@
-export * from './lib/async';
-export * from './lib/number';
+export { DelayCall, DelayCallGlobally } from './lib/DelayCall'
