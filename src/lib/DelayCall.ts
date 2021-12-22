@@ -55,7 +55,11 @@ class DelayCallQueueManager extends EventEmitter {
     if (queue.has(id)) {
       this.__clearTimeout(this.__getQueue(queue, id))
     }
-    queue.set(id, this.__setTimeout(callback, delay))
+    const wrapper = () => {
+      callback()
+      queue.delete(id)
+    }
+    queue.set(id, this.__setTimeout(wrapper, delay))
   }
 
   protected __cancel(queue: DelayCallQueue, id: DelayCallID): boolean {
