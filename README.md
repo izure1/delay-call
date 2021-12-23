@@ -10,6 +10,12 @@ It would be nice to ignore duplicate calls and only respond to the last call.
 
 This library helps you implement those functions easily.
 
+## Install
+
+```bash
+npm i delay-call
+```
+
 ## How to use
 
 ```javascript
@@ -17,14 +23,16 @@ import { DelayCall } from 'delay-call';
 
 const delay = new DelayCall();
 
+function build() {
+  // ...
+}
+
 function onChangeFile() {
   delay
-    .request('build-file', () => {
-      build();
-    })
+    .request('build-file', build)
     .done('build-file')
     .then(() => {
-      console.log('build called!');
+      console.log('built done!');
     });
 }
 ```
@@ -59,14 +67,16 @@ import { DelayCallGlobally } from 'delay-call';
 
 const delay = new DelayCallGlobally();
 
+function build() {
+  // ...
+}
+
 function onChangeFile() {
   delay
-    .request('build-file', () => {
-      build();
-    })
+    .request('build-file', build)
     .done('build-file')
     .then(() => {
-      console.log('build called in A!');
+      console.log('built done!');
     });
 }
 
@@ -75,14 +85,16 @@ import { DelayCallGlobally } from 'delay-call';
 
 const delay = new DelayCallGlobally();
 
+function build() {
+  // ...
+}
+
 function onChangeFile() {
   delay
-    .request('build-file', () => {
-      build();
-    })
+    .request('build-file', build)
     .done('build-file')
     .then(() => {
-      console.log('build called in B!');
+      console.log('built done!');
     });
 }
 ```
