@@ -137,7 +137,7 @@ export class DelayCall extends DelayCallQueueManager {
   }
 }
 
-export class DelayCallGlobally extends DelayCall {
+export class DelayCallGlobally extends DelayCallQueueManager {
   protected static __Delay = 25
   protected static __Queue: DelayCallQueue = new Map
   
