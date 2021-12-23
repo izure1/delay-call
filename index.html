@@ -73,6 +73,11 @@
 				<p>This is not good for performance.
 				It would be nice to ignore duplicate calls and only respond to the last call.</p>
 				<p>This library helps you implement those functions easily.</p>
+				<a href="#install" id="install" style="color: inherit; text-decoration: none;">
+					<h2>Install</h2>
+				</a>
+				<pre><code class="language-bash">npm i delay-call
+</code></pre>
 				<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
 					<h2>How to use</h2>
 				</a>
@@ -80,14 +85,16 @@
 
 <span class="hljs-keyword">const</span> delay = <span class="hljs-keyword">new</span> DelayCall();
 
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">build</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...</span>
+}
+
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onChangeFile</span>(<span class="hljs-params"></span>) </span>{
   delay
-    .request(<span class="hljs-string">&#x27;build-file&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
-      build();
-    })
+    .request(<span class="hljs-string">&#x27;build-file&#x27;</span>, build)
     .done(<span class="hljs-string">&#x27;build-file&#x27;</span>)
     .then(<span class="hljs-function">() =&gt;</span> {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;build called!&#x27;</span>);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;built done!&#x27;</span>);
     });
 }
 </code></pre>
@@ -120,14 +127,16 @@
 
 <span class="hljs-keyword">const</span> delay = <span class="hljs-keyword">new</span> DelayCallGlobally();
 
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">build</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...</span>
+}
+
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onChangeFile</span>(<span class="hljs-params"></span>) </span>{
   delay
-    .request(<span class="hljs-string">&#x27;build-file&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
-      build();
-    })
+    .request(<span class="hljs-string">&#x27;build-file&#x27;</span>, build)
     .done(<span class="hljs-string">&#x27;build-file&#x27;</span>)
     .then(<span class="hljs-function">() =&gt;</span> {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;build called in A!&#x27;</span>);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;built done!&#x27;</span>);
     });
 }
 
@@ -136,14 +145,16 @@
 
 <span class="hljs-keyword">const</span> delay = <span class="hljs-keyword">new</span> DelayCallGlobally();
 
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">build</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...</span>
+}
+
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onChangeFile</span>(<span class="hljs-params"></span>) </span>{
   delay
-    .request(<span class="hljs-string">&#x27;build-file&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
-      build();
-    })
+    .request(<span class="hljs-string">&#x27;build-file&#x27;</span>, build)
     .done(<span class="hljs-string">&#x27;build-file&#x27;</span>)
     .then(<span class="hljs-function">() =&gt;</span> {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;build called in B!&#x27;</span>);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;built done!&#x27;</span>);
     });
 }
 </code></pre>
