@@ -33,6 +33,26 @@ test('cancel', async (t) => {
   t.deepEqual(stack, [])
 })
 
+test('cancel-error', async (t) => {
+  const job = new DelayCall
+  const stack: number[] = []
+
+  for (let i = 0; i < 10; i++) {
+    job.request('add-stack', () => {
+      stack.push(1)
+    })
+  }
+
+  job.done('add-stack').then(() => {
+    t.fail()
+  }).catch((reason) => {
+    const { message } = reason as Error
+    t.is(message, 'The task canceled.')
+  })
+
+  job.cancel('add-stack')
+})
+
 test('cancel-all', async (t) => {
   const job = new DelayCall
   const stack: number[] = []

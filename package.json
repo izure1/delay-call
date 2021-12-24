@@ -1,6 +1,6 @@
 {
   "name": "delay-call",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "If the task overlaps, wait and run only once.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",

@@ -12,7 +12,7 @@ interface DelayCallQueueItem {
 }
 
 class DelayCallQueueManager extends EventEmitter {
-  protected __getQueue(queue: DelayCallQueue, id: DelayCallID): DelayCallQueueItem {
+  protected __getQueueItem(queue: DelayCallQueue, id: DelayCallID): DelayCallQueueItem {
     const item = queue.get(id)
     if (item) {
       return item as DelayCallQueueItem
@@ -37,7 +37,7 @@ class DelayCallQueueManager extends EventEmitter {
         resolve()
       }
       else {
-        const { done, cancel } = this.__getQueue(queue, id)
+        const { done, cancel } = this.__getQueueItem(queue, id)
         this.once(done, resolve)
         this.once(cancel, reject)
       }
@@ -46,7 +46,7 @@ class DelayCallQueueManager extends EventEmitter {
 
   protected __request(queue: DelayCallQueue, id: DelayCallID, callback: DelayCallback, delay: number): void {
     if (queue.has(id)) {
-      this.__clearTimeout(this.__getQueue(queue, id))
+      this.__clearTimeout(this.__getQueueItem(queue, id))
     }
     const done = Symbol('done')
     const cancel = Symbol('cancel')
@@ -62,7 +62,9 @@ class DelayCallQueueManager extends EventEmitter {
   protected __cancel(queue: DelayCallQueue, id: DelayCallID): boolean {
     const exists = queue.has(id)
     if (exists) {
-      this.__clearTimeout(this.__getQueue(queue, id))
+      const item = this.__getQueueItem(queue, id)
+      this.__clearTimeout(item)
+      this.emit(item.cancel, new Error('The task canceled.'))
       queue.delete(id)
     }
     return exists
@@ -121,7 +123,7 @@ export class DelayCall extends DelayCallQueueManager {
   }
 
   /**
-   * Wait until the requested task of the `id` parameter is actually called.
+   * Wait until the requested task of the `id` parameter is actually called. If canceled by `cancel` method, emit error.
    * @param id It's a unique name for the task.
    * @returns The Promise instance.
    */
