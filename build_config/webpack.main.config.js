@@ -11,7 +11,7 @@ module.exports = {
     filename: '[name].js',
     library: {
       type: 'umd',
-      name: 'DelayCall'
+      name: 'DelayCalls'
     },
     globalObject: 'this'
   }

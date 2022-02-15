@@ -21,7 +21,7 @@ npm i delay-call
 ### Node.js
 
 ```javascript
-import { DelayCall } from 'delay-call'
+import { DelayCall, DelayCallGlobally } from 'delay-call'
 ```
 
 ### Browser (umd)
@@ -30,10 +30,14 @@ import { DelayCall } from 'delay-call'
 <script src="https://cdn.jsdelivr.net/npm/delay-call@latest/build/main/index.min.js"></script>
 ```
 
+```javascript
+const { DelayCall, DelayCallGlobally } = DelayCalls
+```
+
 ### Browser (module)
 
 ```javascript
-import { DelayCall } from 'https://cdn.jsdelivr.net/npm/delay-call@latest/build/module/index.min.js'
+import { DelayCall, DelayCallGlobally } from 'https://cdn.jsdelivr.net/npm/delay-call@latest/build/module/index.min.js'
 ```
 
 ## How to use
