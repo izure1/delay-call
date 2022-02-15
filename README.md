@@ -1,5 +1,7 @@
 # delay-call
 
+[![delay-call](https://data.jsdelivr.com/v1/package/npm/delay-call/badge)](https://www.jsdelivr.com/package/npm/delay-call)
+
 If the task overlaps, wait and run only once.
 
 For example, suppose that when a file is changed, it automatically calls the build command.
@@ -14,6 +16,24 @@ This library helps you implement those functions easily.
 
 ```bash
 npm i delay-call
+```
+
+### Node.js
+
+```javascript
+import { DelayCall } from 'delay-call'
+```
+
+### Browser (umd)
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/delay-call@latest/build/main/index.min.js"></script>
+```
+
+### Browser (module)
+
+```javascript
+import { DelayCall } from 'https://cdn.jsdelivr.net/npm/delay-call@latest/build/module/index.min.js'
 ```
 
 ## How to use
