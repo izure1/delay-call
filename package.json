@@ -1,17 +1,23 @@
 {
   "name": "delay-call",
-  "version": "1.0.4",
+  "version": "1.1.0-alpha.0",
   "description": "If the task overlaps, wait and run only once.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": "https://github.com/izure1/delay-call",
   "license": "MIT",
-  "keywords": ["delay", "task", "delay-call", "delaycall", "wait"],
+  "keywords": [
+    "delay",
+    "task",
+    "delay-call",
+    "delaycall",
+    "wait"
+  ],
   "scripts": {
     "build": "run-p build:*",
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json",
+    "build:main": "npx webpack --config ./build_config/webpack.main.config.js",
+    "build:module": "npx webpack --config ./build_config/webpack.module.config.js",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:lint": "eslint src --ext .ts --fix",
@@ -64,13 +70,18 @@
     "open-cli": "^6.0.1",
     "prettier": "^2.1.1",
     "standard-version": "^9.0.0",
+    "ts-loader": "^9.2.6",
     "ts-node": "^9.0.0",
     "typedoc": "^0.19.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
   },
   "files": [
     "build/main",
     "build/module",
+    "!build/docs",
+    "!build_config/",
     "!**/*.spec.*",
     "!**/*.json",
     "CHANGELOG.md",
