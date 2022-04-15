@@ -31,7 +31,7 @@ import { DelayCall, DelayCallGlobally } from 'delay-call'
 ```
 
 ```javascript
-const { DelayCall, DelayCallGlobally } = DelayCalls
+const { DelayCall, DelayCallGlobally } = DelayCallJS
 ```
 
 ### Browser (module)

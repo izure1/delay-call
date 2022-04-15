@@ -1,6 +1,6 @@
 {
   "name": "delay-call",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "If the task overlaps, wait and run only once.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -53,10 +53,13 @@
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
     "ava": "^3.12.1",
+    "babel-loader": "^8.2.4",
     "codecov": "^3.5.0",
     "cspell": "^4.1.0",
     "cz-conventional-changelog": "^3.3.0",
