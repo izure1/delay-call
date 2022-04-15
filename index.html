@@ -67,6 +67,7 @@
 				<a href="#delay-call" id="delay-call" style="color: inherit; text-decoration: none;">
 					<h1>delay-call</h1>
 				</a>
+				<p><a href="https://www.jsdelivr.com/package/npm/delay-call"><img src="https://data.jsdelivr.com/v1/package/npm/delay-call/badge" alt="delay-call"></a></p>
 				<p>If the task overlaps, wait and run only once.</p>
 				<p>For example, suppose that when a file is changed, it automatically calls the build command.
 				And if <code>1000</code> files are modified at the same time, the build command is called <code>1000</code> times.</p>
@@ -77,6 +78,23 @@
 					<h2>Install</h2>
 				</a>
 				<pre><code class="language-bash">npm i delay-call
+</code></pre>
+				<a href="#nodejs" id="nodejs" style="color: inherit; text-decoration: none;">
+					<h3>Node.js</h3>
+				</a>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { DelayCall, DelayCallGlobally } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;delay-call&#x27;</span>
+</code></pre>
+				<a href="#browser-umd" id="browser-umd" style="color: inherit; text-decoration: none;">
+					<h3>Browser (umd)</h3>
+				</a>
+				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/delay-call@latest/build/main/index.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { DelayCall, DelayCallGlobally } = DelayCallJS
+</code></pre>
+				<a href="#browser-module" id="browser-module" style="color: inherit; text-decoration: none;">
+					<h3>Browser (module)</h3>
+				</a>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { DelayCall, DelayCallGlobally } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/delay-call@latest/build/module/index.min.js&#x27;</span>
 </code></pre>
 				<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
 					<h2>How to use</h2>
