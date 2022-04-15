@@ -1,9 +1,8 @@
 {
   "name": "delay-call",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "If the task overlaps, wait and run only once.",
   "main": "build/main/index.js",
-  "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": "https://github.com/izure1/delay-call",
   "license": "MIT",
@@ -16,8 +15,8 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:main": "npx webpack --config ./build_config/webpack.main.config.js",
-    "build:module": "npx webpack --config ./build_config/webpack.module.config.js",
+    "build:main": "npx webpack --config ./build_config/webpack.main.config.js && tsc --emitDeclarationOnly",
+    "build:module": "npx webpack --config ./build_config/webpack.module.config.js && tsc --emitDeclarationOnly",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:lint": "eslint src --ext .ts --fix",

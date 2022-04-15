@@ -7,7 +7,7 @@ module.exports = {
     outputModule: true
   },
   entry: {
-    'module/index': path.join(__dirname, '../', 'src', 'index.ts')
+    'module/index': path.join(__dirname, '../', 'src', 'module', 'index.ts')
   },
   output: {
     path: path.join(__dirname, '../', 'build'),
