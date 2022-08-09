@@ -1,9 +1,10 @@
 {
   "name": "delay-call",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "If the task overlaps, wait and run only once.",
   "main": "build/main/index.js",
   "module": "build/module/index.js",
+  "typings": "build/main/index.js",
   "repository": "https://github.com/izure1/delay-call",
   "license": "MIT",
   "keywords": [
